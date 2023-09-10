@@ -39,26 +39,39 @@
 
 /* Styling team members cards */
 .team {
-    margin: 45px auto 0;
+    margin: 60px auto 0;
     width: 100%;
     height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     row-gap: 80px;
+}
+
+/* wrapper */
+.wrapper{
+    width: 100%;
+    flex-basis: 49%;
+    position: relative;
 }
 
 /*  styling property for each card  */
 .card {
     margin: 0 auto;
     width: 156px;
+    height: 235px;
     display: grid;
     grid-gap: 4px;
     grid-template-columns: 5fr 1fr;
-    position: relative;
+    justify-content: center;
+    align-content: center;
 }
-.card:nth-child(even) {
+.wrapper:nth-child(even) {
     top: 60px;
 }
+
+/* styling name and role text of each members */
 .title {
     writing-mode: vertical-rl;
     font-family: "PT Serif";
@@ -75,9 +88,10 @@
 
 /*  Styling footer content  */
 .footer {
-    margin-top: 200px;
+    margin-top: 150px;
+    margin-bottom: 10px;
     padding: 5px 0;
-    width: 90%;
+    width: 100%;
     font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
@@ -101,10 +115,12 @@
 /* for destktop windows */
 @media screen and (min-width: 760px) {
 
+    /*  styling header to be dislayed as columns */
     .header {
         max-width: 90%;
         flex-direction: row;
         justify-content: center;
+        column-gap: 20px;
     }
     #team-name{
         max-width: 40%;
@@ -114,21 +130,34 @@
         font-size: 18px;
     }
 
+    /* settings image for bigger screens */
     img {
-        min-width: 225px;
+        width: 225px;
         height: 340px;
     }
 
+    /* styling team members card to be displayed in center */
     .team {
-        margin-top: 100px;
-        width: 100%;
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 132px
+        margin: 140px auto 0;
+        max-width: 1100px;
+        row-gap: 250px
     }
-    .card:nth-child(even) {
+    .wrapper {
+        flex-basis: 33.2%;
+    }
+    .wrapper:nth-child(even) {
         top: 0px;
     }
-    .card:nth-child(3n - 1) {
-        top: 120px;
+
+    .wrapper > .card {
+        margin: 0 auto;
+    }
+
+    .wrapper:nth-child(3n - 1) {
+        top: 100px;
+    }
+
+    .footer{
+        margin-top: 250px;
     }
 }
